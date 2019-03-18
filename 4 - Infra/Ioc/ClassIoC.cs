@@ -6,7 +6,6 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Services.Clientes;
 using Services.Emprestimos;
-using Services.UbsServices.Validator;
 
 namespace Ioc
 {
@@ -30,10 +29,8 @@ namespace Ioc
             services.AddScoped<IClienteRepository, ClienteRepository>();
         }
 
-
         private void RegisterValidator(IServiceCollection services)
         {
-            services.AddTransient<IValidator<UbsFormDTO>, UbsValidator>();
             services.AddTransient<IValidator<EmprestimoFormDto>, EmprestimoValidator>();
         }
     }

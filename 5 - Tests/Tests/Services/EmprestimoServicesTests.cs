@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Data.Repositories;
 using Data.RepositoryEntity;
 using Domain.Clientes;
 using Domain.Emprestimos;
 using Domain.Emprestimos.Factory;
 using Dtos.Dto;
-using FluentValidation.TestHelper;
 using Moq;
 using Services.Clientes;
 using Services.Emprestimos;
-using Services.UbsServices;
-using Services.UbsServices.Validator;
 using Xunit;
 
 namespace Tests.Services
