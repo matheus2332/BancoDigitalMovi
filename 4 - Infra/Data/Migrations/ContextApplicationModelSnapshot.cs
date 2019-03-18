@@ -12,7 +12,7 @@ namespace Data.Migrations
     partial class ContextApplicationModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
-        {   
+        {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
@@ -37,6 +37,17 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f492c222-4b54-4937-93b6-6cbd4b939a41"),
+                            Cpf = "40426235819",
+                            LimiteDeEmprestimo = 1000m,
+                            Nome = "Usuario movidesk",
+                            Senha = "21232f297a57a5a743894a0e4a801fc3",
+                            Usuario = "movidesk"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Emprestimos.Emprestimo", b =>

@@ -1,7 +1,9 @@
-﻿using Domain;
+﻿using CrossCutting;
+using Domain;
 using Domain.Clientes;
 using Domain.Emprestimos;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Data.Data
 {
@@ -22,6 +24,18 @@ namespace Data.Data
             modelBuilder.Entity<Cliente>()
                 .HasMany(x => x.Emprestimos)
                 .WithOne(m => m.Cliente);
+            Seed(modelBuilder);
+        }
+
+        protected void Seed(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente(Guid.NewGuid(),
+                            "40426235819",
+                            1000m,
+                            "Usuario movidesk",
+                            "movidesk",
+                            Seguranca.GerarHashMd5("admin")));
         }
     }
 }

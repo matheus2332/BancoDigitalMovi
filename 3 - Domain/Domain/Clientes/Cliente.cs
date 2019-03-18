@@ -11,6 +11,16 @@ namespace Domain.Clientes
         {
         }
 
+        public Cliente(Guid id, string cpf, decimal limiteDeEmprestimo, string nome, string usuario, string senha)
+        {
+            SetId(id);
+            SetCpf(cpf);
+            SetLimiteDeEmprestimo(limiteDeEmprestimo);
+            SetNome(nome);
+            SetUsuario(usuario);
+            SetSenha(senha);
+        }
+
         public string Cpf { get; private set; }
         public List<Emprestimo> Emprestimos { get; private set; }
         public decimal LimiteDeEmprestimo { get; private set; }

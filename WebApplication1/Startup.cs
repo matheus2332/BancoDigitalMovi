@@ -41,7 +41,21 @@ namespace WebApi
 
             app.UseCors("VueCorsPolicy");
             app.UseAuthentication();
+            UpdateDatabase(app);
             app.UseMvc();
+        }
+
+        private static void UpdateDatabase(IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices
+                .GetRequiredService<IServiceScopeFactory>()
+                .CreateScope())
+            {
+                using (var context = serviceScope.ServiceProvider.GetService<ContextApplication>())
+                {
+                    context.Database.Migrate();
+                }
+            }
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.

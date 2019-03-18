@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ContextApplication))]
-    [Migration("20190318130535_new")]
-    partial class @new
+    [Migration("20190318184335_seed")]
+    partial class seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,17 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f492c222-4b54-4937-93b6-6cbd4b939a41"),
+                            Cpf = "40426235819",
+                            LimiteDeEmprestimo = 1000m,
+                            Nome = "Usuario movidesk",
+                            Senha = "21232f297a57a5a743894a0e4a801fc3",
+                            Usuario = "movidesk"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Emprestimos.Emprestimo", b =>
