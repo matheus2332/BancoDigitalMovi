@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CrossCutting;
 using Data.Data;
 using Data.RepositoryEntity;
 using Domain.Clientes;
@@ -50,8 +51,8 @@ namespace Services.Clientes
 
         private static bool VerifyPasswordHash(string senhaInformada, string senhaDoUsuario)
         {
-            if (senhaInformada == null) throw new ArgumentNullException("password");
-            return senhaDoUsuario == senhaInformada;
+            if (senhaInformada == null) throw new ArgumentNullException("senha incorreta");
+            return senhaDoUsuario == Seguranca.GerarHashMd5(senhaInformada);
         }
     }
 }
