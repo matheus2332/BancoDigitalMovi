@@ -9,10 +9,6 @@
     </template>
 
   <template  v-if="authenticated">
-      <core-filter />
-
-      <core-toolbar />
-
       <core-drawer />
 
       <core-view />

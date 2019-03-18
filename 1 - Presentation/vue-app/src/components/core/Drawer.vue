@@ -29,7 +29,7 @@
             />
           </v-list-tile-avatar>
           <v-list-tile-title class="title">
-            Vuetify MD
+            Banco Digital Mov
           </v-list-tile-title>
         </v-list-tile>
         <v-divider/>
@@ -71,22 +71,17 @@ import {
 
 export default {
   data: () => ({
-    logo: './img/vuetifylogo.png',
+    logo: './img/logomovi.png',
     links: [
       {
-        to: '/dashboard',
-        icon: 'mdi-view-dashboard',
-        text: 'Dashboard'
+        to: '/solicitar-emprestimo',
+        icon: 'mdi-pen',
+        text: 'Solicitar emprestimo'
       },
       {
-        to: '/user-profile',
-        icon: 'mdi-account',
-        text: 'User Profile'
-      },
-      {
-        to: '/table-list',
-        icon: 'mdi-clipboard-outline',
-        text: 'Table List'
+        to: '/meus-emprestimos',
+        icon: 'mdi-clipboard-text',
+        text: 'Meus emprestimos'
       }
     ],
     responsive: false
