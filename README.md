@@ -2,8 +2,7 @@
 > Solicite emprestimos enquanto tiverem limites
 > Relatorios detalhados de sua movimentação
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+![NPM Version][npm-image]
 
 ![](../header.png)
 
