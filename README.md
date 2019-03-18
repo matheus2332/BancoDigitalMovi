@@ -26,7 +26,13 @@ Agora basta executar em seu navegador http://localhost:8080/login
 
 Basta executar o projeto WebApi.
 
-## Obtendo relatorio de emprestimos diarios (bash)
+Será criado automatiamente um cliente padrao com 
+**usuario: movidesk**
+**senha: admin** 
+com um limite de R$ 1000.00.
+Verifique que sua instancia de banco estará criada.
+
+## ## Obtendo relatorio de emprestimos diarios (bash)
 
 É necessário buildar o projeto, "GerarArquivo" que esta na camada de "1 - Presentation".
 
@@ -38,7 +44,7 @@ dotnet run
 
 Seu arquivo estará disponível na pasta "c:\emprestimos"
 
-## Contributing
+## Contribuições
 
 1. Faça o _fork_ do projeto (<https://github.com/yourname/yourproject/fork>)
 2. Crie uma _branch_ para sua modificação (`git checkout -b feature/fooBar`)
