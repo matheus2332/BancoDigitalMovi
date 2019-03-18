@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using CrossCutting;
 
 namespace GerarArquivo
 {
@@ -9,7 +8,7 @@ namespace GerarArquivo
         private static void Main(string[] args)
         {
             var emprestimoServices = new DependenceInjection().EmprestimoServices();
-            var caminhoPadrao = $"c:\\emprestimos{StringHelper.FormatarDataParaArquivoDeEmprestimos(DateTime.Now)}";
+            var caminhoPadrao = $"c:\\emprestimos";
             if (!Directory.Exists(caminhoPadrao)) Directory.CreateDirectory(caminhoPadrao);
             var nomeArquivo = $"{caminhoPadrao}\\emprestimos{DateTime.Now.ToString("yyyyMMddHHmmss")}.txt";
             using (var writer = new StreamWriter(nomeArquivo))
@@ -20,6 +19,7 @@ namespace GerarArquivo
 
             Console.WriteLine("Arquivo gerado com sucesso!!");
             Console.WriteLine($"Seu arquivo esta em '{caminhoPadrao}'");
+            Console.ReadKey();
         }
     }
 }

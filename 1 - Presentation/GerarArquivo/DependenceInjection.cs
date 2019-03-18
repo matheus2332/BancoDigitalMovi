@@ -1,4 +1,5 @@
 ﻿using Data.Data;
+using Data.RepositoryEntity;
 using Domain.Emprestimos.Factory;
 using Dtos.Dto;
 using FluentValidation;
@@ -25,6 +26,8 @@ namespace GerarArquivo
                 AddSingleton<IClienteServices, ClienteServices>().
                 AddSingleton<IEmprestimoServices, EmprestimoServices>().
                 AddSingleton<IEmprestimoBuilder, EmprestimoBuilder>().
+                AddSingleton<IEmprestimoRepository, EmprestimoRepository>().
+                AddSingleton<IClienteRepository, ClienteRepository>().
                 AddSingleton<IValidator<EmprestimoFormDto>, EmprestimoValidator>()
                 .AddDbContext<ContextApplication>((options => options.UseSqlServer(ConnectionString.GetConnectionString())))
                 .BuildServiceProvider();
