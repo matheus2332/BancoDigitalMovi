@@ -27,8 +27,11 @@ Agora basta executar em seu navegador http://localhost:8080/login
 Basta executar o projeto WebApi.
 
 Será criado automatiamente um cliente padrao com 
+
 **usuario: movidesk**
+
 **senha: admin** 
+
 com um limite de R$ 1000.00.
 Verifique que sua instancia de banco estará criada.
 
