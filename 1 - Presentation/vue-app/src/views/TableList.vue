@@ -19,6 +19,7 @@
             :headers="headers"
             :items="items"
             hide-actions
+            no-data-text="Ainda não há emprestimos solicitados"
           >
             <template
               slot="headerCell"

@@ -3,10 +3,18 @@
       justify-center
       wrap
     >
+
           <v-flex
         xs12
         md4
       >
+             <v-alert
+        v-model="dadosDoCliente.erro"
+        dismissible
+        type="error"
+      >
+        {{dadosDoCliente.message}}
+      </v-alert>
         <material-card
           color="green"
           title="Efetuar login"
