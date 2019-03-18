@@ -1,0 +1,5 @@
+INSERT Cliente VALUES ('10199983690', 'Matheus', '2018-03-16')
+
+UPDATE Cliente SET Nome = 'Matheus Editado' WHERE id = 1
+
+DELETE FROM Cliente WHERE id = 1
