@@ -1,5 +1,5 @@
 CREATE TABLE [dbo].[Cliente] (
-  [id] bigint NOT NULL,
+  [id] bigint IDENTITY(1,1) NOT NULL,
   [cpf] varchar(11) NOT NULL,
   [nome] varchar(80) NOT NULL,
   [data_nascimento] date NULL,
@@ -8,7 +8,7 @@ CREATE TABLE [dbo].[Cliente] (
 )
 
 CREATE TABLE [dbo].[Conta] (
-  [id] bigint NOT NULL,
+  [id] bigint IDENTITY(1,1) NOT NULL,
   [id_cliente] bigint NOT NULL,
   [numero] varchar(15) NOT NULL,
   [digito] int NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[Conta] (
 )
 
 CREATE TABLE [dbo].[Emprestimo] (
-  [id] bigint NOT NULL,
+  [id] bigint IDENTITY(1,1) NOT NULL,
   [id_conta] bigint NOT NULL,
   [valor] decimal(18,2) NOT NULL,
   [data_emprestimo] date NOT NULL,
