@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[Cliente] (
+  [id] bigint NOT NULL,
+  [cpf] varchar(11) NOT NULL,
+  [nome] varchar(80) NOT NULL,
+  [data_nascimento] date NULL,
+  PRIMARY KEY CLUSTERED ([id]),
+  UNIQUE ([cpf])
+)
+
+CREATE TABLE [dbo].[Conta] (
+  [id] bigint NOT NULL,
+  [id_cliente] bigint NOT NULL,
+  [numero] varchar(15) NOT NULL,
+  [digito] int NOT NULL,
+  PRIMARY KEY CLUSTERED ([id]),
+  UNIQUE ([numero], [digito]),
+  FOREIGN KEY ([id_cliente]) REFERENCES [dbo].[Cliente] ([Id]) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+CREATE TABLE [dbo].[Emprestimo] (
+  [id] bigint NOT NULL,
+  [id_conta] bigint NOT NULL,
+  [valor] decimal(18,2) NOT NULL,
+  [data_emprestimo] date NOT NULL,
+  PRIMARY KEY CLUSTERED ([id]),
+  FOREIGN KEY ([id_conta]) REFERENCES [dbo].[Conta] ([id]) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
