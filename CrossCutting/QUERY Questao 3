@@ -1,0 +1,2 @@
+SELECT YEAR(data_emprestimo) as Ano, MONTH(data_emprestimo) as Mes, SUM(valor) as Valor FROM Emprestimo
+GROUP BY YEAR(data_emprestimo), MONTH(data_emprestimo)
