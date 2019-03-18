@@ -20,6 +20,8 @@ Após execute o comando "npm run dev" para subir sua aplicação.
 npm run dev
 ```
 
+Agora basta executar em seu navegador http://localhost:8080/login
+
 ## ## Configuração para Desenvolvimento (Back-end)
 
 Basta executar o projeto WebApi.
