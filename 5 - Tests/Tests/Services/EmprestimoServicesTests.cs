@@ -20,28 +20,67 @@ namespace Tests.Services
 {
     public class EmprestimoServicesTests
     {
+        private Guid ClienteId => Guid.NewGuid();
+
         [Fact]
-        public void Save()
+        public void Criar_emprestimo_corretamente()
         {
             var formDto = GetServiceEmprestimo().Save(new EmprestimoFormDto
             {
                 ValorDoEmprestimo = 100,
-                ClienteId = Guid.Parse("8ff3ec78-bff0-456c-aacd-6b3242403985"),
+                ClienteId = ClienteId,
                 DataDoEmprestimo = DateTime.Now,
             });
 
             Assert.True(formDto.ValidationSucceeded);
         }
 
+        [Fact]
+        public void Criar_emprestimo_com_cliente_sem_limite_disponivel()
+        {
+            var formDto = GetServiceEmprestimo().Save(new EmprestimoFormDto
+            {
+                ValorDoEmprestimo = 600,
+                ClienteId = ClienteId,
+                DataDoEmprestimo = DateTime.Now,
+            });
+
+            Assert.False(formDto.ValidationSucceeded);
+        }
+
+        [Fact]
+        public void Criar_emprestimo_com_valor_igual_zero()
+        {
+            var formDto = GetServiceEmprestimo().Save(new EmprestimoFormDto
+            {
+                ValorDoEmprestimo = 0,
+                ClienteId = ClienteId,
+                DataDoEmprestimo = DateTime.Now,
+            });
+
+            Assert.False(formDto.ValidationSucceeded);
+        }
+
+        [Fact]
+        public void Get_emprestimos()
+        {
+            var emprestimos = GetServiceEmprestimo().GetMeusEmprestimos(ClienteId);
+            Assert.True(emprestimos.Any());
+        }
+
+        [Fact]
+        public void Gerar_arquivo()
+        {
+            var emprestimos = GetServiceEmprestimo().GerarAquivo();
+            Assert.True(emprestimos.Any());
+        }
+
         private Cliente GetCliente()
         {
             var cliente = new Cliente();
-            cliente.SetCpf("");
-            cliente.SetLimiteDeEmprestimo(1100);
-            cliente.SetNome("Jdulley");
-            cliente.SetSenha("");
-            cliente.SetUsuario("");
-            cliente.SetId(Guid.Parse("8ff3ec78-bff0-456c-aacd-6b3242403985"));
+            cliente.SetLimiteDeEmprestimo(100);
+            cliente.SetNome("Matheus");
+            cliente.SetId(ClienteId);
             return cliente;
         }
 
@@ -52,8 +91,10 @@ namespace Tests.Services
             var clienteServicesMoq = new Mock<IClienteServices>();
 
             var clientes = PopularCliente();
+            var emprestimos = PopularEmprestimo(clientes.FirstOrDefault());
 
             repositoryCliente.Setup(x => x.Get(It.IsAny<Expression<Func<Cliente, bool>>>())).Returns(clientes.AsQueryable);
+            repositoryEmprestimo.Setup(x => x.Get(It.IsAny<Expression<Func<Emprestimo, bool>>>())).Returns(emprestimos.AsQueryable);
             clienteServicesMoq.Setup(c => c.GetById(It.IsAny<Guid>())).Returns(clientes.FirstOrDefault());
             repositoryCliente.Setup(x => x.GetAll()).Returns(clientes.AsQueryable);
 
