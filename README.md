@@ -1,14 +1,14 @@
 # Banco Digital Movi
-> Solicite emprestimos enquanto tiverem limites
-> Relatorios detalhados de sua movimentação
+> Solicite empréstimos enquanto possuir limite
+> Relatórios detalhados de sua movimentação
 
 ![NPM Version][npm-image]
 
 ![](../header.png)
 
-## ## Configuração para Desenvolvimento (Front-end)
+## ## Configuração para o desenvolvimento (Front-end)
 
-No diretorio "1 - Presentation\vue-app" inicie o "cmd" ou equivalente, e execute o seguinte comando
+No diretório "1 - Presentation\vue-app" inicie o "cmd" ou equivalente, e execute o seguinte comando
 
 ```sh
 npm install
@@ -22,24 +22,24 @@ npm run dev
 
 Agora basta executar em seu navegador http://localhost:8080/login
 
-## ## Configuração para Desenvolvimento (Back-end)
+## ## Configuração para o desenvolvimento (Back-end)
 
 Basta executar o projeto WebApi.
 
-Será criado automatiamente um cliente padrao com 
+Será criado automaticamente um cliente padrão com 
 
-**usuario: movidesk**
+**usuário: movidesk**
 
 **senha: admin** 
 
 com um limite de R$ 1000.00.
-Verifique que sua instancia de banco estará criada.
+Verifique que sua instância de banco estará criada.
 
-## ## Obtendo relatorio de emprestimos diarios (bash)
+## ## Obtendo relatório de empréstimos diários (bash)
 
-É necessário buildar o projeto, "GerarArquivo" que esta na camada de "1 - Presentation".
+É necessário buildar o projeto, "GerarArquivo" que está na camada de "1 - Presentation".
 
-Após o build basta execute o "cmd" ou equivalente na pasta do projeto "1 - Presentation\GerarArquivo"
+Após o build basta executar o "cmd" ou equivalente na pasta do projeto "1 - Presentation\GerarArquivo"
 
 ```sh
 dotnet run
